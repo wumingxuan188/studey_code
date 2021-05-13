@@ -11,7 +11,7 @@ import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
  * 部门表 sys_dept
- * 
+ * ceshi
  * @author ruoyi
  */
 public class SysDept extends BaseEntity
