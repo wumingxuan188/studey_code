@@ -12,10 +12,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *//*
+ */
 
-
-package com.ruoyi.customer.auth.core.config;
+package com.ruoyi.customer.common.security.core.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
@@ -28,12 +27,10 @@ import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-*/
 /**
  * @author lengleng
  * @date 2019/2/1 Redis 配置类
- *//*
-
+ */
 @EnableCaching
 @Configuration(proxyBeanMethods = false)
 @RequiredArgsConstructor
@@ -79,4 +76,3 @@ public class RedisTemplateConfiguration {
 	}
 
 }
-*/

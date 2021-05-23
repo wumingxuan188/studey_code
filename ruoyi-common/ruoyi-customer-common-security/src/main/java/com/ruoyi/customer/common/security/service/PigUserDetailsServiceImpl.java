@@ -20,6 +20,7 @@ import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.system.UserInfo;
 import com.ruoyi.customer.common.security.constant.CacheConstants;
+import com.ruoyi.customer.common.security.constant.SecurityConstants;
 import com.ruoyi.customer.common.security.util.R;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -34,10 +35,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import sun.font.TrueTypeFont;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 用户详细信息
@@ -68,9 +66,9 @@ public class PigUserDetailsServiceImpl implements UserDetailsService {
 
 		//R<UserInfo> result = remoteUserService.info(username, SecurityConstants.FROM_IN);
 		//UserDetails userDetails = getUserDetails(result);
-		PigUser userDetails = new PigUser(1, 2, "admin", "1223"
+		PigUser userDetails = new PigUser(1, 2, "admin", SecurityConstants.BCRYPT+"$2a$10$RpFJjxYiXdEsAGnWp/8fsOetMuOON96Ntk/Ym2M/RKRyU0GZseaDC"
 				, true, true, true, true,
-				null);
+				new ArrayList<>());
 		if (cache != null) {
 			cache.put(username, userDetails);
 		}

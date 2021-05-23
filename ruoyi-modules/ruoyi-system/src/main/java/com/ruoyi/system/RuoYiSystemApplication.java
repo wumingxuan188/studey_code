@@ -1,5 +1,6 @@
 package com.ruoyi.system;
 
+import com.ruoyi.customer.common.security.annotation.EnablePigResourceServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import com.ruoyi.common.security.annotation.EnableCustomConfig;
@@ -15,6 +16,7 @@ import com.ruoyi.common.swagger.annotation.EnableCustomSwagger2;
 @EnableCustomSwagger2
 @EnableRyFeignClients
 @SpringCloudApplication
+@EnablePigResourceServer
 public class RuoYiSystemApplication
 {
     public static void main(String[] args)

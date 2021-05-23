@@ -1,6 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.pig4cloud.pig.common.core.config.JacksonConfiguration,\
-  com.pig4cloud.pig.common.core.config.RedisTemplateConfiguration,\
-  com.pig4cloud.pig.common.core.config.RestTemplateConfiguration,\
-  com.pig4cloud.pig.common.core.util.SpringContextHolder,\
-  com.pig4cloud.pig.common.core.config.WebMvcConfiguration
+  com.ruoyi.customer.common.security.core.config.RedisTemplateConfiguration,\
+  com.ruoyi.customer.common.security.service.PigUserDetailsServiceImpl,\
+  com.ruoyi.customer.common.security.component.PigSecurityInnerAspect

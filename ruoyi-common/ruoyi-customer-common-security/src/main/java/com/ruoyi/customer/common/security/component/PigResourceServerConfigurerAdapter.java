@@ -42,7 +42,7 @@ public class PigResourceServerConfigurerAdapter extends ResourceServerConfigurer
 	@Autowired
 	protected ResourceAuthExceptionEntryPoint resourceAuthExceptionEntryPoint;
 
-	@Autowired
+//	@Autowired
 	protected RemoteTokenServices remoteTokenServices;
 
 	@Autowired
@@ -74,14 +74,22 @@ public class PigResourceServerConfigurerAdapter extends ResourceServerConfigurer
 
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) {
+		RemoteTokenServices services = new RemoteTokenServices();
 		DefaultAccessTokenConverter accessTokenConverter = new DefaultAccessTokenConverter();
 		UserAuthenticationConverter userTokenConverter = new PigUserAuthenticationConverter();
 		accessTokenConverter.setUserTokenConverter(userTokenConverter);
 
-		remoteTokenServices.setRestTemplate(lbRestTemplate);
-		remoteTokenServices.setAccessTokenConverter(accessTokenConverter);
+//		this.remoteTokenServices.setRestTemplate(lbRestTemplate);
+//		this.remoteTokenServices.setAccessTokenConverter(accessTokenConverter);
+		services.setCheckTokenEndpointUrl("http://ruoyi-customer-auth/oauth/check_token");
+		services.setClientId("pig");
+		services.setClientSecret("pig");
+		services.setRestTemplate(lbRestTemplate);
+		services.setAccessTokenConverter(accessTokenConverter);
+
 		resources.authenticationEntryPoint(resourceAuthExceptionEntryPoint).tokenExtractor(pigBearerTokenExtractor)
-				.accessDeniedHandler(pigAccessDeniedHandler).tokenServices(remoteTokenServices);
+				.accessDeniedHandler(pigAccessDeniedHandler).tokenServices(services);
+//				.accessDeniedHandler(pigAccessDeniedHandler).tokenServices(this.remoteTokenServices);
 	}
 
 }
